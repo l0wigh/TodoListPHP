@@ -37,7 +37,7 @@
                 while($maligne = fgetcsv($fichier)) {
                     echo '<tr>';
                     foreach($maligne as $unecell){
-                        echo '<td>'.$unecell.'</td>';
+                        echo '<td>'.htmlspecialchars($unecell, ENT_QUOTES, 'UTF-8').'</td>';
                     }
                 echo '</tr>';
                 }
