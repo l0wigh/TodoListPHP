@@ -11,9 +11,6 @@
         unset($csv[$ligne]);
         $final = array_values($csv);
         $fichier = fopen("list.csv", "w");
-        fputs($fichier, "");
-        fclose($fichier);
-        $fichier = fopen("list.csv", "a");
         for($i = 0; $i < count($final); $i++){
             $tache = array($final[$i][0]);
             fputcsv($fichier, $tache);
@@ -30,11 +27,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>TodoList</title>
     </head>
-    <body>
+    <body style="background: black; color: white;">
         <table border=1 style="padding: 1px; font-size: 40px;">
             <?php
                 $fichier = fopen("list.csv", "r");
-                while($maligne = fgetcsv($fichier)) {
+                while($maligne = fgetcsv($fichier)){
                     echo '<tr>';
                     foreach($maligne as $unecell){
                         echo '<td>'.htmlspecialchars($unecell, ENT_QUOTES, 'UTF-8').'</td>';
